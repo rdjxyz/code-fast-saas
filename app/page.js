@@ -1,5 +1,6 @@
 import ButtonLogin from '@/components/ButtonLogin';
 import PricingCard from '@/components/PricingCard';
+import FAQListItem from '@/components/FAQListItem';
 
 export default function Home() {
   const isLoggedIn = true;
@@ -10,10 +11,10 @@ export default function Home() {
         <nav className='max-w-3xl mx-auto flex justify-between items-center px-8 py-2'>
           <div className='font-bold'>CodeFastSaaS</div>
           <div className='space-x-4 max-md:hidden'>
-            <a className='link link-hover' href=''>
+            <a className='link link-hover' href='#pricing'>
               Pricing
             </a>
-            <a className='link link-hover' href=''>
+            <a className='link link-hover' href='#faq'>
               FAQ
             </a>
           </div>
@@ -31,7 +32,7 @@ export default function Home() {
         </div>
       </section>
       {/* Pricing */}
-      <section className='bg-base-200'>
+      <section className='bg-base-200' id='pricing'>
         <div className='px-8 py-32 max-w-3xl mx-auto'>
           <p className='text-sm uppercase font-medium text-center text-primary mb-4'>Pricing</p>
           <h2 className='text-3xl lg:text-4xl font-extrabold mb-12 text-center'>Pricing that adapts to your needs</h2>
@@ -43,6 +44,22 @@ export default function Home() {
             {/* Pricing Card */}
             <PricingCard tier='Premium' price='49' />
           </div>
+        </div>
+      </section>
+      {/* FAQ */}
+      <section id='faq'>
+        <div className='px-8 py-32 max-w-3xl mx-auto'>
+          <p className='text-sm uppercase font-medium text-center text-primary mb-4'>FAQ</p>
+          <h2 className='text-3xl lg:text-4xl font-extrabold mb-12 text-center'>Frequently Asked Questions</h2>
+          <ul className='max-w-lg mx-auto'>
+            {[
+              { question: 'What do I get exactly?', answer: 'Lorem ipsum' },
+              { question: 'Can I get a refund?', answer: 'Lorem ipsum' },
+              { question: 'I have another question', answer: 'Lorem ipsum' },
+            ].map((qa) => (
+              <FAQListItem key={qa.question} qa={qa} />
+            ))}
+          </ul>
         </div>
       </section>
     </main>
